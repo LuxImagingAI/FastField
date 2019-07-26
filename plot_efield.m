@@ -42,7 +42,7 @@ for i=1:length(elfv)
     if(ismember(i, [1 2 3 4 5 6 7 8 9]))
         if perc(i)>0
             
-           patch(elfv(i), 'FaceColor', 'red', 'EdgeColor', 'none');
+           patch(elfv(i), 'FaceColor', [1 0.1 0.1] , 'EdgeColor', 'none');
         else
            patch(elfv(i), 'FaceColor', rgb('dimgray'), 'EdgeColor', 'none');
         end
