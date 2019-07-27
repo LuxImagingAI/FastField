@@ -61,6 +61,7 @@ for i=1:length(elfv)
 end
 daspect([1 1 1])
 camlight left;
+lighting gouraud
 
  
  %% visualize Target
@@ -93,7 +94,16 @@ elseif strcmp(target,'vim')
 %else strcmp(target,'')
     
 end
-daspect([1 1 1])
-addToolbarExplorationButtons(gcf)
-ea_dispt('')
+daspect([1 1 1]);
+addToolbarExplorationButtons(gcf);
+ea_dispt('');
+set(gca,'color',[0.9 0.9 0.9]);
+% axis off
+set(gca,'XTick',[]);
+set(gca,'Xcolor',[0.9 0.9 0.9])
+set(gca,'YTick',[]);
+set(gca,'Ycolor',[0.9 0.9 0.9])
+set(gca,'ZTick',[]);
+set(gca,'Zcolor',[0.9 0.9 0.9])
+title('Estimated Efield');
 end
