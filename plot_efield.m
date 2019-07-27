@@ -66,28 +66,28 @@ lighting gouraud
  
  %% visualize Target
 
-load([dir_estimefield filesep 'atlas_index.mat']);
+load([dir_estimefield filesep 'resources' filesep 'atlas_index.mat']);
 
 if strcmp(target,'stn')
     hold on;
     if side == 1
-            patch(atlases.fv{1,1}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none')
+            patch(atlases.fv{1,1}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
             material dull
             lighting gouraud
        elseif side == 2
-            patch(atlases.fv{1,2}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none')
+            patch(atlases.fv{1,2}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
             material dull
             lighting gouraud
     end
 elseif strcmp(target,'vim')
       hold on;
         if side == 1
-            patch(atlases.fv{5,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none')
+            patch(atlases.fv{5,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
             material dull
             lighting gouraud
             
        elseif side == 2
-            patch(atlases.fv{5,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none')
+            patch(atlases.fv{5,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
             material dull
             lighting gouraud
         end
