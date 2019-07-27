@@ -1,4 +1,4 @@
-function [trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,elstruct,gv,side)
+function [trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,electrode_patient,grid_vec,side)
 
 %% Calculate the transformation matrix from the stamdard space to patient
 % mni space
@@ -8,15 +8,15 @@ electrode.tail_position,1
 electrode.x_position,1
 electrode.y_position,1]; % points in model
 
-B=[elstruct.markers(side).head,1;
-elstruct.markers(side).tail,1;
-elstruct.markers(side).x,1;
-elstruct.markers(side).y,1];
+B=[electrode_patient.markers(side).head,1;
+electrode_patient.markers(side).tail,1;
+electrode_patient.markers(side).x,1;
+electrode_patient.markers(side).y,1];
 
 Y = mldivide(A,B); Y=Y'; 
 trans_mat=Y;
 %% move the grid to patient mni space
-[xg,yg,zg]=meshgrid(gv{1},gv{2},gv{3});
+[xg,yg,zg]=meshgrid(grid_vec{1},grid_vec{2},grid_vec{3});
 
 ind_mat3=zeros(1000000,3);
 cnt=1;

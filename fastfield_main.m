@@ -1,30 +1,21 @@
-function [Efield,xg,yg,zg,elfv,trans_mat]= EstimEfield_main(dir_estimefield,dir_patient,perc,amp,side)
+function [Efield,xg,yg,zg,elfv,trans_mat]= fastfield_main(dir_estimefield,dir_patient,perc,amp,side)
 % for the moment only for boston vercise directed electrode
-
 ea_dispt('Calculate Efiled ...')
-%% check the percentages of the contacts
+
+% check the percentages of the contacts
 if sum(perc)==100 || sum(perc)==0
+   
+    
+    % load needed resources
+    [E_field_fixed,grid_vec,electrode,electrode_patient] = load_files(dir_estimefield,dir_patient);
 
-%% load the standard grid and Efield
-load([dir_estimefield filesep 'resources' filesep 'E_field_fixed.mat']);
-gv=grid_vec;
-
-
-
-%% calculate the new E_field
-[Efield] = get_efield(perc,E_field_fixed,amp);
+    % calculate the new E_field
+    [Efield] = get_efield(perc,E_field_fixed,amp);
 
 
-
-%% Calculate the transformation matrix from the stamdard space to patient
-% mni space
-
-load([dir_estimefield filesep 'resources' filesep 'Boston Scientific Vercise Directed.mat']);
-load([dir_patient filesep 'ea_reconstruction.mat']);
-elstruct=reco.mni;
-
-[trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,elstruct,gv,side);
-
+    % Calculate the transformation matrix from the stamdard space to patient
+    % mni space
+    [trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,electrode_patient,grid_vec,side);
 
 
 else
