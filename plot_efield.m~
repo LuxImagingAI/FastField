@@ -55,12 +55,12 @@ for i=1:length(elfv)
            patch(elfv(i), 'FaceColor', rgb('dimgray'), 'EdgeColor', 'none');
         end
     else
-        patch(elfv(i), 'FaceColor', rgb('lightgray'), 'EdgeColor', 'none');
+       patch(elfv(i), 'FaceColor', rgb('lightgray'), 'EdgeColor', 'none');
 
     end
 end
 daspect([1 1 1])
-camlight left;
+ camlight left;
 
  
  %% visualize Target
@@ -70,24 +70,23 @@ load([dir_estimefield filesep 'atlas_index.mat']);
 if strcmp(target,'stn')
     hold on;
     if side == 1
-            patch(atlases.fv{1,1}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none')
-            material dull
-            lighting gouraud
+        patch(atlases.fv{1,1}, 'FaceColor', [0 0.9 0.7], 'EdgeColor', 'none')
+        material dull
+        lighting gouraud
        elseif side == 2
-            patch(atlases.fv{1,2}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none')
-            material dull
-            lighting gouraud
+           patch(atlases.fv{1,2}, 'FaceColor', [0 0.9 0.7], 'EdgeColor', 'none')
+           material dull
+           lighting gouraud
     end
 elseif strcmp(target,'vim')
       hold on;
         if side == 1
-            patch(atlases.fv{5,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none')
+            patch(atlases.fv{5,1}, 'FaceColor', [0 0.7 1], 'EdgeColor', 'none')
             material dull
             lighting gouraud
             
        elseif side == 2
-            patch(atlases.fv{5,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none')
-            material dull
+            patch(atlases.fv{5,2}, 'FaceColor', [0 0.7 1], 'EdgeColor', 'none')
             lighting gouraud
         end
 %else strcmp(target,'')

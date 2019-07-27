@@ -2,7 +2,7 @@ function [Efield,xg,yg,zg,elfv]= EstimEfield_main(dir_estimefield,dir_patient,pe
 
 ea_dispt('Calculate Efiled ...')
 %% check the percentages of the contacts
-if sum(perc)==100
+if sum(perc)==100 || sum(perc)==0
 
 %% load the standard grid and Efield
 load([dir_estimefield filesep 'E_field_fixed.mat']);
