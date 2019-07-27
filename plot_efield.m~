@@ -7,7 +7,7 @@ min_e=min(Efield(:));
 max_e=max(Efield(:));
 
 range_e=max_e-min_e;
-step_e=range_e/63;
+step_e=range_e/65;
 
 %min_e=200;
 E_layers = min_e:step_e:max_e;
@@ -55,44 +55,55 @@ for i=1:length(elfv)
            patch(elfv(i), 'FaceColor', rgb('dimgray'), 'EdgeColor', 'none');
         end
     else
-       patch(elfv(i), 'FaceColor', rgb('lightgray'), 'EdgeColor', 'none');
+        patch(elfv(i), 'FaceColor', rgb('lightgray'), 'EdgeColor', 'none');
 
     end
 end
 daspect([1 1 1])
- camlight left;
+camlight left;
+lighting gouraud
 
  
  %% visualize Target
 
-load([dir_estimefield filesep 'atlas_index.mat']);
+load([dir_estimefield filesep 'resources' filesep 'atlas_index.mat']);
 
 if strcmp(target,'stn')
     hold on;
     if side == 1
-        patch(atlases.fv{1,1}, 'FaceColor', [0 0.9 0.7], 'EdgeColor', 'none')
-        material dull
-        lighting gouraud
+            patch(atlases.fv{1,1}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
+            material dull
+            lighting gouraud
        elseif side == 2
-           patch(atlases.fv{1,2}, 'FaceColor', [0 0.9 0.7], 'EdgeColor', 'none')
-           material dull
-           lighting gouraud
+            patch(atlases.fv{1,2}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
+            material dull
+            lighting gouraud
     end
 elseif strcmp(target,'vim')
       hold on;
         if side == 1
-            patch(atlases.fv{5,1}, 'FaceColor', [0 0.7 1], 'EdgeColor', 'none')
+            patch(atlases.fv{5,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
             material dull
             lighting gouraud
             
        elseif side == 2
-            patch(atlases.fv{5,2}, 'FaceColor', [0 0.7 1], 'EdgeColor', 'none')
+            patch(atlases.fv{5,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
+            material dull
             lighting gouraud
         end
 %else strcmp(target,'')
     
 end
-daspect([1 1 1])
-addToolbarExplorationButtons(gcf)
-ea_dispt('')
+daspect([1 1 1]);
+addToolbarExplorationButtons(gcf);
+ea_dispt('');
+set(gca,'color',[0.9 0.9 0.9]);
+% axis off
+set(gca,'XTick',[]);
+set(gca,'Xcolor',[0.9 0.9 0.9])
+set(gca,'YTick',[]);
+set(gca,'Ycolor',[0.9 0.9 0.9])
+set(gca,'ZTick',[]);
+set(gca,'Zcolor',[0.9 0.9 0.9])
+title('Estimated Efield');
 end

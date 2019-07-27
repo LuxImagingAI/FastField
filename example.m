@@ -19,5 +19,5 @@ side=2; % Right is 1,  Left is 2
 
 % visualize Efield
 
-target='vim'; % for the moment only for stn or vim
+target='stn'; % for the moment only for stn or vim
 plot_efield(Efield,xg,yg,zg,perc,elfv,dir_estimefield,target,side);
