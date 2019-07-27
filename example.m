@@ -14,7 +14,7 @@ perc=[50,50,0,0,0,0,0,0];
 amp=3; % amplitude in mA
 side=2; % Right is 1,  Left is 2
 
-[Efield,xg,yg,zg,elfv]= EstimEfield_main(dir_estimefield,dir_patient,perc,amp,side);
+[Efield,xg,yg,zg,elfv,trans_mat]= EstimEfield_main(dir_estimefield,dir_patient,perc,amp,side);
 
 
 % visualize Efield

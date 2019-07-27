@@ -1,4 +1,4 @@
-function [Efield,xg,yg,zg,elfv]= EstimEfield_main(dir_estimefield,dir_patient,perc,amp,side)
+function [Efield,xg,yg,zg,elfv,trans_mat]= EstimEfield_main(dir_estimefield,dir_patient,perc,amp,side)
 
 ea_dispt('Calculate Efiled ...')
 %% check the percentages of the contacts
@@ -22,7 +22,7 @@ load([dir_estimefield filesep 'Boston Scientific Vercise Directed.mat']);
 load([dir_patient filesep 'ea_reconstruction.mat']);
 elstruct=reco.mni;
 
-[Y,elfv,xg,yg,zg] = get_trans_mat(electrode,elstruct,gv,side);
+[trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,elstruct,gv,side);
 
 
 
