@@ -1,15 +1,14 @@
 
 function plot_efield(Efield,xg,yg,zg,perc,elfv,dir_estimefield,target,side)
 ea_dispt('Plot the Efield ...')
-%% visualize Efield
 
+% visualize Efield
 min_e=min(Efield(:));
 max_e=max(Efield(:));
 
 range_e=max_e-min_e;
 step_e=range_e/63;
 
-%min_e=200;
 E_layers = min_e:step_e:max_e;
 cut = 1:100;
 
@@ -17,7 +16,7 @@ data = Efield(:,:,cut);
 X=xg;
 Y=yg;
 Z=zg;
-%cmap = lines(length(E_layers));
+
 cmap = colormap(autumn);
 h = {};
 
@@ -42,8 +41,9 @@ figure;
         daspect([1 1 1])
         lighting gouraud
       end
-end
- %% visualize Electrode
+ end
+
+% visualize Electrode
 perc(9)=0;
  hold on;
 for i=1:length(elfv)
@@ -64,8 +64,7 @@ camlight left;
 lighting gouraud
 
  
- %% visualize Target
-
+% visualize Target
 load([dir_estimefield filesep 'resources' filesep 'atlas_index.mat']);
 
 if strcmp(target,'stn')
@@ -91,14 +90,12 @@ elseif strcmp(target,'vim')
             material dull
             lighting gouraud
         end
-%else strcmp(target,'')
     
 end
 daspect([1 1 1]);
 addToolbarExplorationButtons(gcf);
 ea_dispt('');
 set(gca,'color',[0.9 0.9 0.9]);
-% axis off
 set(gca,'XTick',[]);
 set(gca,'Xcolor',[0.9 0.9 0.9])
 set(gca,'YTick',[]);
