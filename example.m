@@ -3,6 +3,8 @@
 % clear all; %close all;
 dir_fastfield='/Users/andreas/Documents/GitHub/FastField/';
 dir_patient='/Users/andreas/Documents/DATA/isabelfa/Habenula Shangai/CONVERTED/Likai/';
+% dir_fastfield='/Users/mehri.baniasadi/Documents/GitHub/FastField';
+% dir_patient=pwd;
 
 % Perc is the percentage assigned to each contact
 % 1 is is the bottom contact, 8 is the topest contact
