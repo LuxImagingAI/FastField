@@ -3,7 +3,7 @@
 % clear all; %close all;
 
 dir_fastfield='/Users/mehri.baniasadi/Documents/GitHub/FastField';
-dir_patient=pwd;
+dir_patient=pwd; % [dir_fastfield filesep 'patient1']
 % Perc is the percentage assigned to each contact
 % 1 is is the bottom contact, 8 is the topest contact
 % 2,3,4 are each segment of the second ring from the bottom
