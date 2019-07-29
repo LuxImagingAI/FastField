@@ -1,5 +1,6 @@
 
-function [hGroupElec, hTarget] = plot_el_target(perc,elfv,atlases,target,side)
+function [hGroupElec, hTarget] = plot_elec_target(perc,elfv,atlases,target,side)
+
 ea_dispt('Plot the Electrode and the target ...')
 
 

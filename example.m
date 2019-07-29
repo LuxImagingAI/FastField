@@ -1,10 +1,10 @@
 % example
 
 % clear all; %close all;
-dir_fastfield='/Users/andreas/Documents/GitHub/FastField/';
-dir_patient='/Users/andreas/Documents/DATA/isabelfa/Habenula Shangai/CONVERTED/Likai/';
-% dir_fastfield='/Users/mehri.baniasadi/Documents/GitHub/FastField';
-% dir_patient=pwd;
+% dir_fastfield='/Users/andreas/Documents/GitHub/FastField/';
+% dir_patient='/Users/andreas/Documents/DATA/isabelfa/Habenula Shangai/CONVERTED/Likai/';
+dir_fastfield='/Users/mehri.baniasadi/Documents/GitHub/FastField';
+dir_patient=pwd;
 
 % Perc is the percentage assigned to each contact
 % 1 is is the bottom contact, 8 is the topest contact
@@ -23,9 +23,10 @@ side=2; % Right is 1,  Left is 2
 
 
 % visualize Efield
-target='stn'; % for the moment only for stn or vim
+target='stn_motor'; % for the moment only for stn or vim
 figure;
-[hGroupField, hGroupElec, hTarget] = plot_efield(Efield,xg,yg,zg,perc,elfv,atlases,target,side);
+[hGroupElec, hTarget] = plot_elec_target(perc,elfv,atlases,target,side);
+[hGroupField] = plot_efield(Efield,xg,yg,zg);
 
 
 
