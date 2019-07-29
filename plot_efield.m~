@@ -1,8 +1,8 @@
 
-function plot_efield(Efield,xg,yg,zg,perc,elfv,dir_estimefield,target,side)
+function plot_efield(Efield,xg,yg,zg,perc,elfv,atlases,dir_fast,target,side)
 ea_dispt('Plot the Efield ...')
-% visualize Efield
 
+% visualize Efield
 min_e=min(Efield(:));
 max_e=max(Efield(:));
 
@@ -66,7 +66,6 @@ lighting gouraud
  
 % visualize Target
 
-load([dir_estimefield filesep 'resources' filesep 'atlas_index.mat']);
 
 if strcmp(target,'stn')
     hold on;
@@ -91,14 +90,12 @@ elseif strcmp(target,'vim')
             material dull
             lighting gouraud
         end
-
     
 end
 daspect([1 1 1]);
 addToolbarExplorationButtons(gcf);
 ea_dispt('');
 set(gca,'color',[0.9 0.9 0.9]);
-% axis off
 set(gca,'XTick',[]);
 set(gca,'Xcolor',[0.9 0.9 0.9])
 set(gca,'YTick',[]);

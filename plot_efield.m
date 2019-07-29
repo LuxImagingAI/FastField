@@ -1,5 +1,5 @@
 
-function plot_efield(Efield,xg,yg,zg,perc,elfv,dir_estimefield,target,side)
+function plot_efield(Efield,xg,yg,zg,perc,elfv,atlases,target,side)
 ea_dispt('Plot the Efield ...')
 
 % visualize Efield
@@ -65,7 +65,7 @@ lighting gouraud
 
  
 % visualize Target
-load([dir_estimefield filesep 'resources' filesep 'atlas_index.mat']);
+
 
 if strcmp(target,'stn')
     hold on;
