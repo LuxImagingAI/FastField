@@ -1,5 +1,5 @@
 
-function plot_efield(Efield,xg,yg,zg,perc,elfv,atlases,target,side)
+function [hGroupField, hGroupElec, hTarget] = plot_efield(Efield,xg,yg,zg,perc,elfv,atlases,target,side)
 ea_dispt('Plot the Efield ...')
 
 % visualize Efield
@@ -18,80 +18,70 @@ Y=yg;
 Z=zg;
 
 cmap = colormap(autumn);
+hGroupField = hggroup();
 h = {};
 
 
-figure;
  for i = 1:length(E_layers)
      
      if E_layers(i) >200
          
         s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), permute(data, [2 1 3]) > E_layers(i) );
 
-        h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:) , 'FaceAlpha', 0.1);
-
-        daspect([1 1 1])
-        lighting gouraud
+        h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:) , 'FaceAlpha', 0.1, 'Parent', hGroupField);
          
      else
         s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), permute(data, [2 1 3]) > E_layers(i) );
 
-        h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:), 'FaceAlpha', 0.07);
+        h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:), 'FaceAlpha', 0.07, 'Parent', hGroupField);
 
-        daspect([1 1 1])
-        lighting gouraud
       end
  end
 
 % visualize Electrode
+hGroupElec = hggroup();
+
 perc(9)=0;
- hold on;
+hold on;
 for i=1:length(elfv)
     if(ismember(i, [1 2 3 4 5 6 7 8 9]))
         if perc(i)>0
-            
-           patch(elfv(i), 'FaceColor', [1 0.1 0.1] , 'EdgeColor', 'none');
+           patch(elfv(i), 'FaceColor', [1 0.1 0.1] , 'EdgeColor', 'none', 'Parent', hGroupElec);
         else
-           patch(elfv(i), 'FaceColor', rgb('dimgray'), 'EdgeColor', 'none');
+           patch(elfv(i), 'FaceColor', rgb('dimgray'), 'EdgeColor', 'none', 'Parent', hGroupElec);
         end
     else
-        patch(elfv(i), 'FaceColor', rgb('lightgray'), 'EdgeColor', 'none');
-
+        patch(elfv(i), 'FaceColor', rgb('lightgray'), 'EdgeColor', 'none', 'Parent', hGroupElec);
     end
 end
-daspect([1 1 1])
-camlight left;
-lighting gouraud
 
  
 % visualize Target
 
-
+hTarget  = [];
 if strcmp(target,'stn')
     hold on;
     if side == 1
-            patch(atlases.fv{1,1}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
+            hTarget = patch(atlases.fv{1,1}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
             material dull
-            lighting gouraud
        elseif side == 2
-            patch(atlases.fv{1,2}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
+            hTarget = patch(atlases.fv{1,2}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
             material dull
-            lighting gouraud
     end
 elseif strcmp(target,'vim')
       hold on;
         if side == 1
-            patch(atlases.fv{5,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
+            hTarget = patch(atlases.fv{5,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
             material dull
-            lighting gouraud
             
        elseif side == 2
-            patch(atlases.fv{5,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
+            hTarget = patch(atlases.fv{5,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5)
             material dull
-            lighting gouraud
         end
     
 end
+camlight left;
+lighting gouraud
 daspect([1 1 1]);
 addToolbarExplorationButtons(gcf);
 ea_dispt('');
