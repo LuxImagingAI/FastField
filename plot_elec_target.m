@@ -29,32 +29,32 @@ hTarget  = [];
 if strcmp(target,'stn')
     hold on;
     if side == 1
-            hTarget = patch(atlases.fv{1,1}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5);
+            hTarget = patch(atlases.fv{1,1}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.45);
             material dull
        elseif side == 2
-            hTarget = patch(atlases.fv{1,2}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.5);
+            hTarget = patch(atlases.fv{1,2}, 'FaceColor', [0 0.75 0.75], 'EdgeColor', 'none', 'FaceAlpha', 0.45);
             material dull
     end
     
 elseif strcmp(target,'stn_motor')
       hold on;
         if side == 1
-            hTarget = patch(atlases.fv{2,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5);
+            hTarget = patch(atlases.fv{2,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.45);
             material dull
             
        elseif side == 2
-            hTarget = patch(atlases.fv{2,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5);
+            hTarget = patch(atlases.fv{2,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.45);
             material dull
         end
         
 elseif strcmp(target,'vim')
       hold on;
         if side == 1
-            hTarget = patch(atlases.fv{18,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5);
+            hTarget = patch(atlases.fv{18,1}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.45);
             material dull
             
        elseif side == 2
-            hTarget = patch(atlases.fv{18,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.5);
+            hTarget = patch(atlases.fv{18,2}, 'FaceColor', [0 0.5 0.62], 'EdgeColor', 'none', 'FaceAlpha', 0.45);
             material dull
         end
     
