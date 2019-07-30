@@ -10,6 +10,7 @@ range_e=max_e-min_e;
 step_e=range_e/63;
 
 E_layers = min_e:step_e:max_e;
+E_layers = 0.2 * 1000; % general heuristics
 cut = 1:100;
 
 data = Efield(:,:,cut);
@@ -46,7 +47,7 @@ hold on;
 for i=1:length(elfv)
     if(ismember(i, [1 2 3 4 5 6 7 8 9]))
         if perc(i)>0
-           patch(elfv(i), 'FaceColor', [1 0.1 0.1] , 'EdgeColor', 'none', 'Parent', hGroupElec);
+           patch(elfv(i), 'FaceColor', rgb('gold') , 'EdgeColor', 'none', 'Parent', hGroupElec);
         else
            patch(elfv(i), 'FaceColor', rgb('dimgray'), 'EdgeColor', 'none', 'Parent', hGroupElec);
         end
