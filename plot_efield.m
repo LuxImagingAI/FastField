@@ -1,71 +1,72 @@
 function [hGroupField] = plot_efield(Efield,xg,yg,zg,plot_choice)
 
 if strcmp(plot_choice,'vta_efield')
-    
-%ea_dispt('plot Efield...')
-% visualize Efield
-min_e=min(Efield(:));
-max_e=max(Efield(:));
 
-range_e=max_e-min_e;
-step_e=range_e/63;
+    %ea_dispt('plot Efield...')
+    % visualize Efield
+    min_e=min(Efield(:));
+    max_e=max(Efield(:));
 
-E_layers = min_e:step_e:max_e;
-cut = 1:100;
+    range_e=max_e-min_e;
+    step_e=range_e/63;
 
-data = Efield(:,:,cut);
-X=xg;
-Y=yg;
-Z=zg;
+    E_layers = min_e:step_e:max_e;
+    cut = 1:100;
 
-cmap = colormap(autumn);
-hGroupField = hggroup();
-h = {};
+    data = Efield(:,:,cut);
+    X=xg;
+    Y=yg;
+    Z=zg;
+
+    cmap = colormap(autumn);
+    hGroupField = hggroup();
+    h = {};
 
 
- for i = 1:length(E_layers)
-     
-     if E_layers(i) >200
-         
-        s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers(i) );
+     for i = 1:length(E_layers)
 
-        h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:) , 'FaceAlpha', 0.1, 'Parent', hGroupField);
-         
-     else
-        s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers(i) );
+         if E_layers(i) >200
 
-        h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:), 'FaceAlpha', 0.07, 'Parent', hGroupField);
+            s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers(i) );
 
-      end
- end
- 
- ea_dispt('')
- 
+            h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:) , 'FaceAlpha', 0.1, 'Parent', hGroupField);
+
+         else
+            s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers(i) );
+
+            h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:), 'FaceAlpha', 0.07, 'Parent', hGroupField);
+
+          end
+     end
+
+     ea_dispt('')
+
 elseif strcmp(plot_choice,'vta')
- %   ea_dispt('plot vta...')
-% visualize Efield
+     %   ea_dispt('plot vta...')
+    % visualize Efield
 
-E_layers = 200;
-cut = 1:100;
+    E_layers = 200;
+    cut = 1:100;
 
-data = Efield(:,:,cut);
-X=xg;
-Y=yg;
-Z=zg;
+    data = Efield(:,:,cut);
+    X=xg;
+    Y=yg;
+    Z=zg;
 
-cmap = colormap(autumn);
-hGroupField = hggroup();
-h = {};
+    cmap = colormap(autumn);
+    hGroupField = hggroup();
+    h = {};
 
 
-        s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers );
+    s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers );
 
-        h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(1,:) , 'FaceAlpha', 0.25, 'Parent', hGroupField);
-         
- 
- %ea_dispt('')
- 
- 
+    h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(1,:) , 'FaceAlpha', 0.25, 'Parent', hGroupField);
+
+
+     %ea_dispt('')
+
+
+end
 end
  
  
