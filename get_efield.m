@@ -15,7 +15,5 @@ data = smooth3(eeg,'box',5);
 Efield=permute(data, [2 1 3]);
 
 end
-=======
-Efield=eeg;
->>>>>>> 231393e41feb99feb3ec0d93596c7d6cd8351aab
+
 
