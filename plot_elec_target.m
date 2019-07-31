@@ -1,22 +1,22 @@
 
-function [hGroupElec, hTarget] = plot_elec_target(perc,elfv,atlases,target,side)
+function [hGroupElec, hTarget] = plot_elec_target(elfv,atlases,target,side)
 
-ea_dispt('Plot the Electrode and the target ...')
+%ea_dispt('Plot the Electrode and the target ...')
 
 
 
 % visualize Electrode
 hGroupElec = hggroup();
 
-perc(9)=0;
+%perc(9)=0;
 hold on;
 for i=1:length(elfv)
     if(ismember(i, [1 2 3 4 5 6 7 8 9]))
-        if perc(i)>0
-           patch(elfv(i), 'FaceColor', [1 0.1 0.1] , 'EdgeColor', 'none', 'Parent', hGroupElec);
-        else
+%         if perc(i)>0
+%            patch(elfv(i), 'FaceColor', [1 0.1 0.1] , 'EdgeColor', 'none', 'Parent', hGroupElec);
+%         else
            patch(elfv(i), 'FaceColor', rgb('dimgray'), 'EdgeColor', 'none', 'Parent', hGroupElec);
-        end
+%         end
     else
         patch(elfv(i), 'FaceColor', rgb('lightgray'), 'EdgeColor', 'none', 'Parent', hGroupElec);
     end
@@ -63,7 +63,7 @@ camlight left;
 lighting gouraud
 daspect([1 1 1]);
 addToolbarExplorationButtons(gcf);
-ea_dispt('');
+% ea_dispt('');
 set(gca,'color',[0.9 0.9 0.9]);
 set(gca,'XTick',[]);
 set(gca,'Xcolor',[0.9 0.9 0.9])

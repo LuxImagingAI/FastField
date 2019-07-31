@@ -20,6 +20,7 @@ electrode_patient=reco.mni;
 
 
 load([dir_fastfield filesep 'resources' filesep 'atlas_index.mat']);
+%load([dir_fastfield filesep 'resources' filesep 'atlas_me.mat']);
 
 ea_dispt('')
 
