@@ -9,7 +9,7 @@ eeg=((perc(1)*standard_efield{1,1})+(perc(2)*standard_efield{2,1})+...
 eeg=eeg*amp;
 eeg(isnan(eeg))=0;
 eeg(eeg>10000)=10000; 
-<<<<<<< HEAD
+
 data = smooth3(eeg,'box',5);
 
 Efield=permute(data, [2 1 3]);
