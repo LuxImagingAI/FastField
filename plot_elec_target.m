@@ -1,5 +1,5 @@
 
-function [hGroupElec, hTarget] = plot_elec_target(elfv,atlases,target,side)
+function [hGroupElec, hTarget] = plot_elec_target(elfv,atlases,target,side,electrode)
 
 %ea_dispt('Plot the Electrode and the target ...')
 
@@ -10,8 +10,10 @@ hGroupElec = hggroup();
 
 %perc(9)=0;
 hold on;
+
 for i=1:length(elfv)
-    if(ismember(i, [1 2 3 4 5 6 7 8 9]))
+   % if(ismember(i, [1 2 3 4 5 6 7 8 9]))
+    if(ismember(i, [1:length(electrode.contacts)]))
 %         if perc(i)>0
 %            patch(elfv(i), 'FaceColor', [1 0.1 0.1] , 'EdgeColor', 'none', 'Parent', hGroupElec);
 %         else
