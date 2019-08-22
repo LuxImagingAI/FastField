@@ -19,10 +19,11 @@ for i=1:length(elfv)
 %         else
            patch(elfv(i), 'FaceColor', rgb('dimgray'), 'EdgeColor', 'none', 'Parent', hGroupElec);
 %         end
-    else
+    elseif (ismember(i, [length(electrode.contacts)+1:length(electrode.contacts)+length(electrode.insulation)]))
         patch(elfv(i), 'FaceColor', rgb('lightgray'), 'EdgeColor', 'none', 'Parent', hGroupElec);
     end
 end
+
 
  
 % visualize Target
@@ -61,8 +62,10 @@ elseif strcmp(target,'vim')
         end
     
 end
-camlight left;
-lighting gouraud
+%camlight left;
+camlight('headlight')
+%camlight('right')
+%lighting gouraud
 daspect([1 1 1]);
 addToolbarExplorationButtons(gcf);
 % ea_dispt('');

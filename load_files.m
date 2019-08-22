@@ -16,6 +16,13 @@ if strcmp(Electrode_type,'medtronic_3389')
 load([dir_fastfield filesep 'resources' filesep 'standard_efield_m3389.mat']);
 load([dir_fastfield filesep 'resources' filesep 'medtronic 3389.mat']);
 
+
+elseif strcmp(Electrode_type,'medtronic_3387')
+    
+load([dir_fastfield filesep 'resources' filesep 'standard_efield_m3387.mat']);
+load([dir_fastfield filesep 'resources' filesep 'medtronic 3387.mat']);
+
+
 elseif strcmp(Electrode_type,'boston_vercise_directed')
 
 

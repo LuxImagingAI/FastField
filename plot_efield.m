@@ -13,9 +13,9 @@ if strcmp(plot_choice,'vta_efield')
 %    E_layers = min_e:step_e:max_e;
     
     %E_layers = 1e-7:1/62:200
-   E_layers1  = linspace(1,199.99,5);
+   E_layers1  = linspace(0,199.99,5);
    E_layers2 = linspace(200,10000,59);
-   E_layers=[E_layers1,E_layers2]
+   E_layers=[E_layers1,E_layers2];
     
     cut = 1:100;
 
@@ -35,12 +35,12 @@ if strcmp(plot_choice,'vta_efield')
 
             s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers(i) );
 
-            h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:) , 'FaceAlpha', 0.2, 'Parent', hGroupField);
+            h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:) , 'FaceAlpha', 0.25, 'Parent', hGroupField);
 
          else
             s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers(i) );
 
-            h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:), 'FaceAlpha', 0.07, 'Parent', hGroupField);
+            h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:), 'FaceAlpha', 0.06, 'Parent', hGroupField);
 
           end
      end

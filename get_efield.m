@@ -5,7 +5,7 @@ perc=perc/100;
 scale_con=conductivity / 0.14;
 
 
-if strcmp(Electrode_type,'medtronic_3389')
+if strcmp(Electrode_type,'medtronic_3389') || strcmp(Electrode_type,'medtronic_3387')
 eeg=((perc(1)*standard_efield{1,1})+(perc(2)*standard_efield{2,1})+...
 (perc(3)*standard_efield{3,1})+(perc(4)*standard_efield{4,1}));
 
