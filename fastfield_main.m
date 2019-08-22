@@ -11,7 +11,8 @@ function [Efield,xg,yg,zg,elfv,trans_mat]= fastfield_main(standard_efield,grid_v
 ea_dispt('Calculate Efiled ...')
 
 % check the percentages of the contacts
-if sum(perc)==100 || sum(perc)==0
+%if sum(perc)==100 || sum(perc)==0
+if sum(perc) < 100.1 && sum(perc) > 99.9  || sum(perc)==0
    
 
     % calculate the new E_field
