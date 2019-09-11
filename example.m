@@ -10,12 +10,12 @@ dir_patient=pwd;
 % 1 is is the bottom contact, 8 is the topest contact
 % 2,3,4 are each segment of the second ring from the bottom
 % 5,6,7 are each segment of the third ring from the bottom
-perc=[0,50,0,50,0,0,0,0];
+perc=[20,40,30,10,0,0,0,0];
 %perc=[0 100 0 0 0 0 0 0]
 %perc=[0,100,0,0];
-amp=1; % amplitude in mA
+amp=2; % amplitude in mA
 side=2; % Right is 1,  Left is 2
-Electrode_type='boston_vercise'; %'medtronic_3389'; % 'boston_vercise_directed';'medtronic_3387'
+Electrode_type='medtronic_3391'; %'medtronic_3389'; % 'boston_vercise_directed';'medtronic_3387'
 conductivity=0.16;
 
 
@@ -38,7 +38,7 @@ Threshold=200;
 plot_choice='vta';%'vta'; % other option: vta_efield
 [hGroupField] = plot_efield(Efield,xg,yg,zg,plot_choice,Threshold);
 
-
+% 
 az=175;
 el=4;
 view([az,el]);
