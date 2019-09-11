@@ -10,12 +10,13 @@ dir_patient=pwd;
 % 1 is is the bottom contact, 8 is the topest contact
 % 2,3,4 are each segment of the second ring from the bottom
 % 5,6,7 are each segment of the third ring from the bottom
-perc=[25,25,25,25,0,0,0,0];
+perc=[0,50,0,50,0,0,0,0];
+%perc=[0 100 0 0 0 0 0 0]
 %perc=[0,100,0,0];
 amp=1; % amplitude in mA
 side=2; % Right is 1,  Left is 2
-Electrode_type='boston_vercise_directed'; %'medtronic_3389'; % 'boston_vercise_directed';'medtronic_3387'
-conductivity=0.14;
+Electrode_type='boston_vercise'; %'medtronic_3389'; % 'boston_vercise_directed';'medtronic_3387'
+conductivity=0.16;
 
 
 % load resources
@@ -27,15 +28,18 @@ conductivity=0.14;
 
 
 % visualize Efield
-target='stn';%'stn_motor'; % for the moment only for stn or vim
+target='';%'stn_motor'; % for the moment only for stn or vim
 figure;
 %hold on;
-[hGroupElec, hTarget] = plot_elec_target(elfv,atlases,target,side,electrode);
+plot_elec_target(elfv,atlases,target,side,electrode,perc);
 
 
-plot_choice='vta_efield';%'vta'; % other option: vta_efield
-[hGroupField] = plot_efield(Efield,xg,yg,zg,plot_choice);
+Threshold=200;
+plot_choice='vta';%'vta'; % other option: vta_efield
+[hGroupField] = plot_efield(Efield,xg,yg,zg,plot_choice,Threshold);
 
 
-
+az=175;
+el=4;
+view([az,el]);
 

@@ -12,7 +12,7 @@ ea_dispt('Calculate Efiled ...')
 
 % check the percentages of the contacts
 %if sum(perc)==100 || sum(perc)==0
-if sum(perc) < 100.1 && sum(perc) > 99.9  || sum(perc)==0
+if sum(perc) < 100.9 && sum(perc) > 99.1  || sum(perc)==0
    
 
     % calculate the new E_field

@@ -28,6 +28,13 @@ elseif strcmp(Electrode_type,'boston_vercise_directed')
 
 load([dir_fastfield filesep 'resources' filesep 'standard_efield_boston_directed.mat']);
 load([dir_fastfield filesep 'resources' filesep 'Boston Scientific Vercise Directed.mat']);
+
+
+elseif strcmp(Electrode_type,'boston_vercise')
+
+
+load([dir_fastfield filesep 'resources' filesep 'standard_efield_boston.mat']);
+load([dir_fastfield filesep 'resources' filesep 'boston_vercise.mat']);
 end
 
 
@@ -40,7 +47,7 @@ electrode_patient=reco.mni;
 
 
 
-load([dir_fastfield filesep 'resources' filesep 'atlas_index.mat']);
+load([dir_fastfield filesep 'resources' filesep 'atlas_combined.mat']);
 
 ea_dispt('')
 

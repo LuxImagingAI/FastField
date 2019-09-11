@@ -9,7 +9,7 @@ if strcmp(Electrode_type,'medtronic_3389') || strcmp(Electrode_type,'medtronic_3
 eeg=((perc(1)*standard_efield{1,1})+(perc(2)*standard_efield{2,1})+...
 (perc(3)*standard_efield{3,1})+(perc(4)*standard_efield{4,1}));
 
-elseif strcmp(Electrode_type,'boston_vercise_directed')
+elseif strcmp(Electrode_type,'boston_vercise_directed') || strcmp(Electrode_type,'boston_vercise')
 eeg=((perc(1)*standard_efield{1,1})+(perc(2)*standard_efield{2,1})+...
 (perc(3)*standard_efield{3,1})+(perc(4)*standard_efield{4,1})+...
 (perc(5)*standard_efield{5,1})+(perc(6)*standard_efield{6,1})+...
@@ -23,7 +23,8 @@ eeg(isnan(eeg))=0;
 eeg(eeg>10000)=10000; 
 
 data = smooth3(eeg,'box',5);
-
+%data = smooth3(eeg,'gaussian',9);
+%data=eeg;
 Efield=permute(data, [2 1 3]);
 
 end
