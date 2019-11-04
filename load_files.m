@@ -23,10 +23,10 @@ electrode_patient=reco.mni;
 load([dir_fastfield filesep 'resources' filesep 'atlas_combined.mat']);
 
 % load the standard grid and Efield
-load([dir_fastfield filesep 'resources' filesep 'standard_efield_' Electrode_type '.mat']);
+load([dir_fastfield filesep 'resources' filesep Electrode_type filesep 'standard_efield_' Electrode_type '.mat']);
 
 % the elecstode model
-load([dir_fastfield filesep 'resources' filesep Electrode_type '.mat']);
+load([dir_fastfield filesep 'resources'  filesep Electrode_type filesep Electrode_type '.mat']);
 
 
 ea_dispt('')
