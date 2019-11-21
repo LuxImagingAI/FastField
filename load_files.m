@@ -1,4 +1,4 @@
-function [standard_efield,grid_vec,electrode,electrode_patient,atlases] = load_files(dir_fastfield,dir_patient,Electrode_type)
+function [standard_efield,grid_vec,electrode,electrode_patient,atlases] = load_files(dir_fastfield,dir_patient,Electrode_type,amp_mode)
 % inputs:
 % dir_fastfield : the path to the fastfield source code
 % dir_patient: the path to the patietn folder where the ea_reconstruction
@@ -23,7 +23,9 @@ electrode_patient=reco.mni;
 load([dir_fastfield filesep 'resources' filesep 'atlas_combined.mat']);
 
 % load the standard grid and Efield
-load([dir_fastfield filesep 'resources' filesep Electrode_type filesep 'standard_efield_' Electrode_type '.mat']);
+%load([dir_fastfield filesep 'resources' filesep Electrode_type filesep 'standard_efield_' Electrode_type '.mat']);
+load([dir_fastfield filesep 'resources' filesep Electrode_type filesep 'standard_efield_' Electrode_type '_' amp_mode '.mat']);
+
 
 % the elecstode model
 load([dir_fastfield filesep 'resources'  filesep Electrode_type filesep Electrode_type '.mat']);

@@ -12,7 +12,7 @@ dir_patient = '/Users/mehri.baniasadi/Desktop/SelectedPatients/BOSTON/96376/Dist
 % 5,6,7 are each segment of the third ring from the bottom
 % for ring elecetrodes 
 % 1 is the bottom contact then 2 and 3,and 4 the topeset contact;
-perc = [0 80 0 0 20 0 0 0];
+perc = [0 0 0 0 0 0 100 0];
 
 
 amp = 1; % amplitude in mA
@@ -22,18 +22,20 @@ side = 2; % Right is 1,  Left is 2
 Electrode_type = 'boston_vercise_directed'; %'medtronic_3389'; % 'boston_vercise';'medtronic_3387';
                                              %'stjude_directed_short'; %'stjude_directed_long';  
                                              %'stjude_activetip_2mm'; 'stjude_activetip_3mm'
-conductivity = 0.16;
+conductivity = 0.1;
 
 Threshold = 200; % the treshold for Efield visualisation
 
 plot_choice = 'vta';%vta_efield
 
+amp_mode = 'mA'; % 'V'
 
 % load resources
-[standard_efield,grid_vec,electrode,electrode_patient,atlases] = load_files(dir_fastfield,dir_patient,Electrode_type);
+[standard_efield,grid_vec,electrode,electrode_patient,atlases] = load_files(dir_fastfield,dir_patient,Electrode_type,amp_mode);
+
 
 % get the Efield
-[Efield,xg,yg,zg,elfv,trans_mat] = fastfield_main(standard_efield,grid_vec,electrode,electrode_patient,perc,amp,side,conductivity);
+[Efield,xg,yg,zg,elfv,trans_mat] = fastfield_main(standard_efield,grid_vec,electrode,electrode_patient,perc,amp,side,conductivity,amp_mode);
 
  brain_structures{1} = 'STN1';
 
@@ -48,7 +50,7 @@ figure;
 plot_elec(elfv,electrode,perc);
 plot_efield(Efield,xg,yg,zg,plot_choice,Threshold);
 
-plot_atlas(brain_structures,atlases,side) 
+%plot_atlas(brain_structures,atlases,side) 
 
 
 

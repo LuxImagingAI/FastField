@@ -1,4 +1,4 @@
-function [Efield,xg,yg,zg,elfv,trans_mat]= fastfield_main(standard_efield,grid_vec,electrode,electrode_patient,perc,amp,side,conductivity)
+function [Efield,xg,yg,zg,elfv,trans_mat]= fastfield_main(standard_efield,grid_vec,electrode,electrode_patient,perc,amp,side,conductivity,amp_mode)
 % inputs:
 % standard_efield: the standard efield is provided in the resources folder
 % of the fastfield
@@ -20,7 +20,6 @@ function [Efield,xg,yg,zg,elfv,trans_mat]= fastfield_main(standard_efield,grid_v
 % trans_mat: the tranformation matrix from standard space to mni space
 
 
-
 ea_dispt('Calculate Efiled ...')
 
 if sum(perc) < 100.9 && sum(perc) > 99.1  || sum(perc)==0
@@ -30,7 +29,7 @@ if sum(perc) < 100.9 && sum(perc) > 99.1  || sum(perc)==0
        if conductivity > 0 
 
     % calculate the new E_field
-    [Efield] = get_efield(perc,standard_efield,amp,conductivity);
+    [Efield] = get_efield(perc,standard_efield,amp,conductivity,amp_mode);
 
 
     % Calculate the transformation matrix from the stamdard space to patient mni space

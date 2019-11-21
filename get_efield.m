@@ -1,4 +1,4 @@
-function [Efield] = get_efield(perc,standard_efield,amp,conductivity)
+function [Efield] = get_efield(perc,standard_efield,amp,conductivity,amp_mode)
 % inputs:
 % percentage on each contact
 % standard_efield: the standard efield is provided in the resources folder
@@ -21,9 +21,11 @@ for len = 1:length(standard_efield)
 end
 
 % scale the conductivity by 0.14 because the standard efield is generated
-% with conductivity of 0.14
-scale_con= 0.14 / conductivity;
-eeg = eeg*scale_con;
+% with conductivity of 0.1
+if strcmp(amp_mode,'mA')
+    scale_con= 0.1 / conductivity;
+    eeg = eeg*scale_con;
+end
 
 % scale the electric field by amplitude, the standard efield is genereated
 % for amplitude of 1mA
@@ -33,9 +35,9 @@ eeg(isnan(eeg))=0;
 eeg(eeg>10000) = 10000;
 
 % Smooth data
-Efield = smooth3(eeg,'box',9);
-
-
+%Efield = smooth3(eeg,'box',9);
+%Efield = eeg;
+Efield = smooth3(eeg,'gaussian', 9,3);
 end
 
 
