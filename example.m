@@ -13,14 +13,14 @@ dir_patient = '/Users/mehri.baniasadi/Desktop/SelectedPatients/BOSTON/96376/Dist
 % for ring elecetrodes 
 % 1 is the bottom contact then 2 and 3,and 4 the topeset contact;
 perc = [0 0 0 0 0 0 100 0];
-
+perc=[0 0 0 100]
 
 amp = 1; % amplitude in mA
 
 side = 2; % Right is 1,  Left is 2
 
 Electrode_type = 'boston_vercise_directed'; %'medtronic_3389'; % 'boston_vercise';'medtronic_3387';
-                                             %'stjude_directed_short'; %'stjude_directed_long';  
+  Electrode_type = 'medtronic_3391'                                           %'stjude_directed_short'; %'stjude_directed_long';  
                                              %'stjude_activetip_2mm'; 'stjude_activetip_3mm'
 conductivity = 0.1;
 
