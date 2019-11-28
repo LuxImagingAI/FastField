@@ -4,7 +4,7 @@
 
 dir_fastfield='/Users/mehri.baniasadi/Documents/GitHub/FastField';
 dir_patient = '/Users/mehri.baniasadi/Desktop/SelectedPatients/BOSTON/96376/DistalPacer96376/output/dbsar2leaddbs';
-
+%dir_patient = pwd;
 % Perc is the percentage assigned to each contact
 % for segmented electrodes
 % 1 is is the bottom contact, 8 is the topest contact
@@ -13,14 +13,14 @@ dir_patient = '/Users/mehri.baniasadi/Desktop/SelectedPatients/BOSTON/96376/Dist
 % for ring elecetrodes 
 % 1 is the bottom contact then 2 and 3,and 4 the topeset contact;
 perc = [0 0 0 0 0 0 100 0];
-perc=[0 0 0 100]
+%perc=[0 0 0 100]
 
 amp = 1; % amplitude in mA
 
 side = 2; % Right is 1,  Left is 2
 
 Electrode_type = 'boston_vercise_directed'; %'medtronic_3389'; % 'boston_vercise';'medtronic_3387';
-  Electrode_type = 'pins_l302'  
+%  Electrode_type = 'pins_l303'  
   %'stjude_directed_short'; %'stjude_directed_long';  
                                              %'stjude_activetip_2mm'; 'stjude_activetip_3mm'
 conductivity = 0.1;
@@ -41,7 +41,7 @@ amp_mode = 'mA'; % 'V'
 % get the Efield
 [Efield,xg,yg,zg,elfv,trans_mat] = fastfield_main(standard_efield,grid_vec,electrode,electrode_patient,perc,amp,side,conductivity,amp_mode);
 
- brain_structures{1} = 'STN1';
+% brain_structures{1} = 'STN1';
 
 % for t=1:length(atlases.labels{1, 1})
 %  brain_structures{t} =   atlases.labels{1, 1}{t};
