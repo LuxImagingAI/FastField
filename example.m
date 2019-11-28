@@ -20,7 +20,8 @@ amp = 1; % amplitude in mA
 side = 2; % Right is 1,  Left is 2
 
 Electrode_type = 'boston_vercise_directed'; %'medtronic_3389'; % 'boston_vercise';'medtronic_3387';
-  Electrode_type = 'medtronic_3391'                                           %'stjude_directed_short'; %'stjude_directed_long';  
+  Electrode_type = 'pins_l302'  
+  %'stjude_directed_short'; %'stjude_directed_long';  
                                              %'stjude_activetip_2mm'; 'stjude_activetip_3mm'
 conductivity = 0.1;
 
@@ -32,6 +33,9 @@ amp_mode = 'mA'; % 'V'
 
 % load resources
 [standard_efield,grid_vec,electrode,electrode_patient,atlases] = load_files(dir_fastfield,dir_patient,Electrode_type,amp_mode);
+
+
+
 
 
 % get the Efield

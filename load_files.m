@@ -19,6 +19,7 @@ ea_dispt('load resources ...')
 load([dir_patient filesep 'ea_reconstruction.mat']);
 electrode_patient=reco.mni;
 
+
 % load the atlas
 load([dir_fastfield filesep 'resources' filesep 'atlas_combined.mat']);
 

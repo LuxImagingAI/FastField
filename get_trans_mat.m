@@ -15,8 +15,8 @@ function [trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,electrode_patient,g
 % space
 
 
-
 %% Calculate the transformation matrix from the stamdard space to patient mni space
+
 A = [electrode.head_position,1;
 electrode.tail_position,1
 electrode.x_position,1
