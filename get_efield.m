@@ -14,7 +14,8 @@ perc=perc/100;
 
 
 % calculate the efield for this configuration
-eeg = zeros(100,100,100);
+%eeg = zeros(100,100,100);
+eeg = zeros(size(standard_efield{1}));
 
 for len = 1:length(standard_efield)
     eeg = eeg + (perc(len)*standard_efield{len,1});
@@ -38,7 +39,7 @@ eeg(eeg>10000) = 10000;
 %Efield = smooth3(eeg,'box',9);
 %Efield = eeg;
 Efield = smooth3(eeg,'gaussian', 9,3);
-Efield = smooth3(Efield,'gaussian', 9,3);
+%Efield = smooth3(Efield,'gaussian', 9,3);
 
 end
 

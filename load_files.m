@@ -25,7 +25,11 @@ load([dir_fastfield filesep 'resources' filesep 'atlas_combined.mat']);
 
 % load the standard grid and Efield
 %load([dir_fastfield filesep 'resources' filesep Electrode_type filesep 'standard_efield_' Electrode_type '.mat']);
+% if amp <= 4
 load([dir_fastfield filesep 'resources' filesep Electrode_type filesep 'standard_efield_' Electrode_type '_' amp_mode '.mat']);
+% else
+% load([dir_fastfield filesep 'resources' filesep Electrode_type filesep 'standard_efield_' Electrode_type '_' amp_mode '2.mat']);
+% end
 
 
 % the elecstode model

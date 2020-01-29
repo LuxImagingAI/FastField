@@ -17,7 +17,9 @@ hold on;
 for i=1:length(elfv)
     if(ismember(i, [1:length(electrode.contacts)]))
         if perc(i)>0
-            patch(elfv(i), 'FaceColor', [0.9 0.7 0.1] , 'EdgeColor', 'none', 'Parent', hGroupElec);
+        %    patch(elfv(i), 'FaceColor', [0.9 0.7 0.1] , 'EdgeColor', 'none', 'Parent', hGroupElec);
+          patch(elfv(i), 'FaceColor', rgb('dimgray') , 'EdgeColor', 'none', 'Parent', hGroupElec);
+        
         else
             patch(elfv(i), 'FaceColor', rgb('dimgray'), 'EdgeColor', 'none', 'Parent', hGroupElec);
             

@@ -70,10 +70,9 @@ elseif strcmp(plot_choice,'vta')
     s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > Threshold );
     
     h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(1,:) , 'FaceAlpha', 0.35, 'Parent', hGroupField);
-    
+    %cmap(1,:)
     
     %ea_dispt('')
-    
     
 end
 end
