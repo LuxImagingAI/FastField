@@ -58,6 +58,7 @@ elseif strcmp(plot_choice,'vta')
     cut = 1:lg;
     
     data = Efield(:,:,cut);
+    %data = smooth3(data1,'box',9);
     X=xg;
     Y=yg;
     Z=zg;

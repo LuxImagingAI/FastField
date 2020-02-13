@@ -38,7 +38,8 @@ eeg(eeg>10000) = 10000;
 % Smooth data
 %Efield = smooth3(eeg,'box',9);
 %Efield = eeg;
-Efield = smooth3(eeg,'gaussian', 9,3);
+%Efield = smooth3(eeg,'gaussian', 9,3);
+Efield = smooth3(eeg,'box', 9);
 %Efield = smooth3(Efield,'gaussian', 9,3);
 
 end
