@@ -1,4 +1,4 @@
-function [Efield] = get_efield(perc,standard_efield,amp,conductivity,amp_mode)
+function [Efield] = get_efield(perc,standard_efield,amp,conductivity,amp_mode,impedence)
 % inputs:
 % percentage on each contact
 % standard_efield: the standard efield is provided in the resources folder
@@ -9,6 +9,14 @@ function [Efield] = get_efield(perc,standard_efield,amp,conductivity,amp_mode)
 
 %ouput:
 % Efield: the electric field with the defiend parameters
+
+%impedence=1000;
+
+if strcmp(amp_mode,'V')
+    new_amp = (amp/impedence)*1000;
+    amp = new_amp;
+    amp_mode = 'mA';
+end
 
 perc=perc/100;
 

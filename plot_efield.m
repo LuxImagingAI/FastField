@@ -34,18 +34,18 @@ if strcmp(plot_choice,'vta_efield')
     
     for i = 1:length(E_layers)
         
-        if E_layers(i) > Threshold
-            
-            s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers(i) );
-            
-            h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:) , 'FaceAlpha', 0.25, 'Parent', hGroupField);
-            
-        else
+%         if E_layers(i) > Threshold
+%             
+%             s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers(i) );
+%             
+%             h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:) , 'FaceAlpha', 0.25, 'Parent', hGroupField);
+%             
+%         else
             s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > E_layers(i) );
             
             h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(i,:), 'FaceAlpha', 0.06, 'Parent', hGroupField);
             
-        end
+ %       end
     end
     
     ea_dispt('')
@@ -70,6 +70,7 @@ elseif strcmp(plot_choice,'vta')
     
     s = isosurface(X(:,:,cut), Y(:,:,cut), Z(:,:,cut), data > Threshold );
     
+
     h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(1,:) , 'FaceAlpha', 0.35, 'Parent', hGroupField);
     %cmap(1,:)
     

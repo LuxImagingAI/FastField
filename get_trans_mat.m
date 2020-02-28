@@ -1,4 +1,4 @@
-function [trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,electrode_patient,grid_vec,side)
+function [trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,electrode_patient,grid_vec,side,electrode_native)
 % inputs:
 % electrode: is the electrode model
 % electrode_patient: is the location of the patient's electrode in mni
@@ -16,7 +16,7 @@ function [trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,electrode_patient,g
 
 
 %% Calculate the transformation matrix from the stamdard space to patient mni space
-
+% 
 A = [electrode.head_position,1;
 electrode.tail_position,1
 electrode.x_position,1
@@ -43,10 +43,11 @@ yg = reshape(ind_mat4(:,2),sz);
 zg = reshape(ind_mat4(:,3),sz);
 
 %% move the electrode to patient mni space
+
 cnt = 1;
     for con = 1:length(electrode.contacts)
 
-        electrode.contacts(con).vertices = Y*[electrode.contacts(con).vertices,ones(size(electrode.contacts(con).vertices,1),1)]';
+        electrode.contacts(con).vertices = trans_mat*[electrode.contacts(con).vertices,ones(size(electrode.contacts(con).vertices,1),1)]';
         electrode.contacts(con).vertices = electrode.contacts(con).vertices(1:3,:)';
 
         elfv(cnt).faces = electrode.contacts(con).faces;
@@ -59,7 +60,7 @@ cnt = 1;
 
     for ins = 1:length(electrode.insulation)
 
-        electrode.insulation(ins).vertices = Y*[electrode.insulation(ins).vertices,ones(size(electrode.insulation(ins).vertices,1),1)]';
+        electrode.insulation(ins).vertices = trans_mat*[electrode.insulation(ins).vertices,ones(size(electrode.insulation(ins).vertices,1),1)]';
         electrode.insulation(ins).vertices = electrode.insulation(ins).vertices(1:3,:)';
 
 

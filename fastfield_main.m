@@ -1,4 +1,4 @@
-function [Efield,xg,yg,zg,elfv,trans_mat]= fastfield_main(standard_efield,grid_vec,electrode,electrode_patient,perc,amp,side,conductivity,amp_mode)
+function [Efield,xg,yg,zg,elfv,trans_mat]= fastfield_main(standard_efield,grid_vec,electrode,electrode_patient,perc,amp,side,conductivity,amp_mode,impedence)
 % inputs:
 % standard_efield: the standard efield is provided in the resources folder
 % of the fastfield
@@ -29,11 +29,12 @@ if sum(perc) < 100.9 && sum(perc) > 99.1  || sum(perc)==0
        if conductivity > 0 
 
     % calculate the new E_field
-    [Efield] = get_efield(perc,standard_efield,amp,conductivity,amp_mode);
+    [Efield] = get_efield(perc,standard_efield,amp,conductivity,amp_mode,impedence);
 
 
     % Calculate the transformation matrix from the stamdard space to patient mni space
     [trans_mat,elfv,xg,yg,zg] = get_trans_mat(electrode,electrode_patient,grid_vec,side);
+    %[trans_mat,elfv,xg,yg,zg] = get_trans_mat_new(electrode,electrode_patient,grid_vec,side,electrode_native);
     
        else
            error('Error: Conductivity should be greater than zero')
