@@ -13,7 +13,7 @@ function [standard_efield,grid_vec,electrode,electrode_patient,atlases,electrode
 % atlases: the atlas structure of the targets of intrest
 
     
-ea_dispt('load resources ...')
+time_tracker('Loading resources')
 
 % the electrode model of the patient
 load([dir_patient filesep 'ea_reconstruction.mat']);
@@ -39,7 +39,7 @@ load([dir_fastfield filesep 'resources' filesep Electrode_type filesep 'standard
 load([dir_fastfield filesep 'resources'  filesep Electrode_type filesep Electrode_type '.mat']);
 
 
-ea_dispt('')
+time_tracker('')
 
 end
 

@@ -3,8 +3,9 @@
 
 % clear all; %close all;
 
-dir_fastfield='/Users/mehri.baniasadi/Documents/GitHub/FastField';
-dir_patient = '/Users/mehri.baniasadi/Documents/GitHub/FastField/case_studies/case_study_1';
+dir_fastfield='/Users/mehri.baniasadi/Documents/GitHub/luxneuroimage/FastField';
+dir_patient = '/Users/mehri.baniasadi/Documents/GitHub/luxneuroimage/FastField/case_studies/case_study_1';
+
 
 % Perc is the percentage assigned to each contact
 % for segmented electrodes
@@ -13,9 +14,9 @@ dir_patient = '/Users/mehri.baniasadi/Documents/GitHub/FastField/case_studies/ca
 % 5,6,7 are each segment of the third ring from the bottom
 % for ring elecetrodes 
 % 1 is the bottom contact then 2 and 3,and 4 the topeset contact;
-perc = [20 80 0 0 0 0 0 0];
+perc = [0 100 0 0 0 0 0 0];
 
-amp=1.8;
+amp=1;
 side = 2; % Right is 1,  Left is 2
 
 Electrode_type = 'boston_vercise_directed'; %'medtronic_3389'; % 'boston_vercise';'medtronic_3387';
@@ -54,9 +55,9 @@ hold on;
 
 plot_elec(elfv,electrode,perc);
 plot_efield(Efield,xg,yg,zg,plot_choice,Threshold);
-plot_atlas(brain_structures,atlases,side);
+%plot_atlas(brain_structures,atlases,side);
 
 
-view(-221,-5)
-camlight('right')
-camlight( 90, -45, 'infinite');
+%view(-221,-5)
+%camlight('right')
+%camlight( 90, -45, 'infinite');

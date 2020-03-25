@@ -6,7 +6,7 @@ function plot_elec(elfv,electrode,perc)
 % perc:
 
 
-%ea_dispt('Plot the Electrode ...')
+%time_tracker('Plot the Electrode ...')
 
 % visualize Electrode
 hGroupElec = hggroup();
@@ -37,7 +37,7 @@ end
 %lighting gouraud
 daspect([1 1 1]);
 addToolbarExplorationButtons(gcf);
-% ea_dispt('');
+% time_tracker('');
 % set(gca,'color',[0.9 0.9 0.9]);
 set(gca,'XTick',[]);
 set(gca,'Xcolor','none')

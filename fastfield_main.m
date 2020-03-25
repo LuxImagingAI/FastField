@@ -20,7 +20,7 @@ function [Efield,xg,yg,zg,elfv,trans_mat]= fastfield_main(standard_efield,grid_v
 % trans_mat: the tranformation matrix from standard space to mni space
 
 
-ea_dispt('Calculate Efiled ...')
+time_tracker('Calculating e-filed')
 
 if sum(perc) < 100.9 && sum(perc) > 99.1  || sum(perc)==0
     
@@ -48,7 +48,8 @@ else
    error('Error: Sum of the contacts should be equal to 100')
    
 end
-ea_dispt('')
+time_tracker('')
+
 end
 
 

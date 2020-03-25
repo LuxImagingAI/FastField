@@ -4,7 +4,7 @@ function [hGroupField] = plot_efield(Efield,xg,yg,zg,plot_choice,Threshold)
 lg=length(xg);
 if strcmp(plot_choice,'vta_efield')
     
-    %ea_dispt('plot Efield...')
+    %time_tracker('plot Efield...')
     % visualize Efield
     min_e=min(Efield(:));
     max_e=max(Efield(:));
@@ -74,7 +74,7 @@ elseif strcmp(plot_choice,'vta')
     h{end+1} = patch(s, 'EdgeColor', 'none', 'FaceColor', cmap(1,:) , 'FaceAlpha', 0.35, 'Parent', hGroupField);
     %cmap(1,:)
     
-    %ea_dispt('')
+    %time_tracker('')
     
 end
 end
