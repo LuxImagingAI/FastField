@@ -3,7 +3,9 @@
 
 % clear all; %close all;
 
+% Path to the fastfield directory
 dir_fastfield='/Users/mehri.baniasadi/Documents/GitHub/luxneuroimage/FastField';
+% Path to the patient directory
 dir_patient = '/Users/mehri.baniasadi/Documents/GitHub/luxneuroimage/FastField/case_studies/case_study_1';
 
 
