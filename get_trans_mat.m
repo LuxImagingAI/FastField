@@ -39,8 +39,8 @@ ind_mat4 = ind_mat4(1:3,:)';
 
 sz = size(X1);
 xg = reshape(ind_mat4(:,1),sz);
-yg = reshape(ind_mat4(:,2),sz);
-zg = reshape(ind_mat4(:,3),sz);
+yg = reshape(ind_mat4(:,2),sz); 
+zg = reshape(ind_mat4(:,3),sz); 
 
 %% move the electrode to patient mni space
 
@@ -53,7 +53,6 @@ cnt = 1;
         elfv(cnt).faces = electrode.contacts(con).faces;
         elfv(cnt).vertices = electrode.contacts(con).vertices;
         tissuetype(cnt) = 3;
-        t = surfinterior(elfv(cnt).vertices,elfv(cnt).faces);
         cnt=cnt+1;
     end
 
@@ -66,7 +65,6 @@ cnt = 1;
 
         elfv(cnt).faces = electrode.insulation(ins).faces;
         elfv(cnt).vertices = electrode.insulation(ins).vertices;
-        t = surfinterior(elfv(cnt).vertices,elfv(cnt).faces);
         cnt = cnt+1;
     end
 
